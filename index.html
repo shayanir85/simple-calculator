@@ -10,47 +10,52 @@
 
 <body>
 
-
-    <div class="calculator">
-        <div>
-
-            <div class="display" id="display"></div>
-            <br>
-            <div class="reminder" id="reminder"></div>
-            <br>
+    <section id="whole-calculator" class="whole-calculator">
+        <div class="container-btn-darkmode">
+            <button class="darkmode-btn" onclick="darkModeToggle()"> dark Mode</button>
         </div>
-        <div class="buttons">
-            
-            <button onclick="Del()" class="button">C</button>
-            <button onclick="operate('%')" class="button">%</button>
-            <button onclick="operate('/')" class="button">/</button>
-            <abbr title="Empty cache" onclick="Del_cache()" class="button ">EC</abbr>
+        <div id="calculator" class="calculator">
+            <div>
 
-            <button onclick="display(7)" class="button">7</button>
-            <button onclick="display(8)" class="button">8</button>
-            <button onclick="display(9)" class="button">9</button>
-            <button onclick="operate('*')" class="button">*</button>
+                <div class="display" id="display"></div>
+                <br>
+                <div class="reminder" id="reminder"></div>
+                <br>
+            </div>
+            <div class="buttons">
 
-            <button onclick="display(4)" class="button">4</button>
-            <button onclick="display(5)" class="button">5</button>
-            <button onclick="display(6)" class="button">6</button>
-            <button onclick="operate('-')" class="button">-</button>
+                <button onclick="Del()" class="button">C</button>
+                <button onclick="operate('%')" class="button">%</button>
+                <button onclick="operate('/')" class="button">/</button>
+                <abbr title="Empty cache" onclick="Del_cache()" class="button ">EC</abbr>
 
-            <button onclick="display(1)" class="button">1</button>
-            <button onclick="display(2)" class="button">2</button>
-            <button onclick="display(3)" class="button">3</button>
-            <button onclick="operate('+')" class="button">+</button>
+                <button onclick="display(7)" class="button">7</button>
+                <button onclick="display(8)" class="button">8</button>
+                <button onclick="display(9)" class="button">9</button>
+                <button onclick="operate('*')" class="button">*</button>
 
-            <button onclick="minus()" class="button">+/-</button>
-            <button onclick="display(0)" class="button">0</button>
-            <button onclick="display('.')" class="button">.</button>
-            <button onclick="equal_B('=')" class="button ">=</button>
-            
+                <button onclick="display(4)" class="button">4</button>
+                <button onclick="display(5)" class="button">5</button>
+                <button onclick="display(6)" class="button">6</button>
+                <button onclick="operate('-')" class="button">-</button>
+
+                <button onclick="display(1)" class="button">1</button>
+                <button onclick="display(2)" class="button">2</button>
+                <button onclick="display(3)" class="button">3</button>
+                <button onclick="operate('+')" class="button">+</button>
+
+                <button onclick="minus()" class="button">+/-</button>
+                <button onclick="display(0)" class="button">0</button>
+                <button onclick="display('.')" class="button">.</button>
+                <button onclick="equal_B('=')" class="button ">=</button>
+
+            </div>
         </div>
-    </div>
-    <div id="alert" class="">
-        <i>  </i>
-    </div>
+        <div id="alert" class="hide">
+            <i>'calculator cache is cleared successfuly!'</i>
+        </div>
+    </section>
+
     <script src="js/calculator.js"></script>
 
 </body>

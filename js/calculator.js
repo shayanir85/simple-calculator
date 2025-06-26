@@ -1,7 +1,12 @@
 const showval = document.getElementById("display"); // showval = show value
 const showRem = document.getElementById("reminder"); // showrem = show reminder
+const warn = document.getElementById('alert');
+const darkMode = document.getElementById('whole-calculator');
+const darkModeBtn = document.getElementById('calculator');
+
 let screenNumber = "0", partA, partB, opT, values = [], flag = 0; //opT = operator Type
 showval.innerHTML = screenNumber;
+
 showRem.style.display = 'none';
 function printscreen(val) {
     if (val === '.') {
@@ -75,13 +80,22 @@ function equal_B() {
     showRem.innerHTML = '';
     showRem.innerHTML = expression;
 }
-let warn = document.getElementById('alert');
 function alert() {
     warn.classList.remove('hide');
     warn.classList.add('alert');
-    warn.innerHTML = "'calculator cache is cleared successfuly!'";
     setTimeout(() => {
         warn.classList.remove('alert');
         warn.classList.add('hide');
     }, 1500);
 }
+function darkModeToggle() {
+    darkMode.classList.toggle('dark-mode');
+    darkModeBtn.classList.toggle('dark-mode-btn');
+    if (darkMode.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+    } else {
+        localStorage.setItem('darkMode', 'disabled');
+    }
+}
+
+
