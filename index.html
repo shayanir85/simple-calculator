@@ -20,10 +20,9 @@
         <div class="buttons">
             
             <button onclick="Del()" class="button">C</button>
-            <button class="button" id="par_baz">(</button>
-            <button class="button" id="par_bas">)</button> <!--par => prantez-->
             <button onclick="display('%')" class="button">%</button>
             <button onclick="operate('/')" class="button">/</button>
+            <button onclick="Del_cache()" class="button ">EC</button>
 
             <button onclick="display(7)" class="button">7</button>
             <button onclick="display(8)" class="button">8</button>
@@ -40,11 +39,11 @@
             <button onclick="display(3)" class="button">3</button>
             <button onclick="operate('+')" class="button">+</button>
 
-            <button onclick="" class="button">+/-</button>
+            <button onclick="minus()" class="button">+/-</button>
             <button onclick="display(0)" class="button">0</button>
             <button onclick="display('.')" class="button">.</button>
-            <button onclick="equal_B('=')" class="button equal">=</button>
-            <button onclick="Del_cache()" class="button EC">EC</button>
+            <button onclick="equal_B('=')" class="button ">=</button>
+            
         </div>
     </div>
     <script src="js/calculator.js"></script>

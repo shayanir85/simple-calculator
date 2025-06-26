@@ -52,7 +52,10 @@ function operate(op) { // op is equal to operation
         showRem.innerHTML = values.join(' ');
     }
 }
-
+function minus(){
+    screenNumber = (+screenNumber) * -1;
+    showval.innerHTML = screenNumber;
+}
 function equal() {
     expression = values.join('');
     expression = expression.slice(0, -1);
