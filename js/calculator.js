@@ -46,6 +46,11 @@ function operate(op) { // op is equal to operation
     if(flag > 1){
         equal();
     }
+    if (op === '=') {
+        equal_B();
+    } else {
+        showRem.innerHTML = values.join(' ');
+    }
 }
 
 function equal() {
