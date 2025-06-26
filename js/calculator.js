@@ -1,6 +1,6 @@
 const showval = document.getElementById("display"); // showval = show value
 const showRem = document.getElementById("reminder"); // showrem = show reminder
-let screenNumber = "0", partA, partB, opT , values = [] , flag = 0; //opT = operator Type
+let screenNumber = "0", partA, partB, opT, values = [], flag = 0; //opT = operator Type
 showval.innerHTML = screenNumber;
 showRem.style.display = 'none';
 function printscreen(val) {
@@ -31,7 +31,7 @@ function Del_cache() {
     values = [];
     flag = 0;
     showRem.style.display = 'none';
-    alert('calculators cache cleared!');
+    setTimeout(alert(), 200);
 }
 
 function operate(op) { // op is equal to operation 
@@ -42,8 +42,8 @@ function operate(op) { // op is equal to operation
     values.push(partA, opT); // store the values in an array
     screenNumber = '0';
     showval.innerHTML = '';
-    flag++; 
-    if(flag > 1){
+    flag++;
+    if (flag > 1) {
         equal();
     }
     if (op === '=') {
@@ -52,7 +52,7 @@ function operate(op) { // op is equal to operation
         showRem.innerHTML = values.join(' ');
     }
 }
-function minus(){
+function minus() {
     screenNumber = (+screenNumber) * -1;
     showval.innerHTML = screenNumber;
 }
@@ -62,8 +62,8 @@ function equal() {
     console.log(expression);
     result = eval(expression);
     showval.innerHTML = result;
-    showRem.innerHTML = '';    
-    showRem.innerHTML = expression;    
+    showRem.innerHTML = '';
+    showRem.innerHTML = expression;
 }
 function equal_B() {
     values.push(screenNumber);
@@ -72,6 +72,17 @@ function equal_B() {
     result = eval(expression);
     screenNumber = '';
     showval.innerHTML = result;
-    showRem.innerHTML = '';    
-    showRem.innerHTML = expression;    
+    showRem.innerHTML = '';
+    showRem.innerHTML = expression;
 }
+let warn = document.getElementById('alert');
+function alert() {
+    warn.classList.remove('hide');
+    warn.classList.add('alert');
+    warn.innerHTML = "'calculator cache is cleared successfuly!'";
+    setTimeout(() => {
+        warn.classList.remove('alert');
+        warn.classList.add('hide');
+    }, 1500);
+}
+
