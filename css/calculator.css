@@ -11,7 +11,7 @@
 }
 .equal {
   display: inline-block;
-  width: 423% !important;}
+  width: 314% !important;}
 
 .display {
   color: #ffffff;
@@ -25,8 +25,12 @@
   border: none;
   width: calc(100% - 30px);
 }
-
+.EC{
+  position: relative;
+  right: -215%;
+}
 .buttons {
+ 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 5px;

@@ -1,9 +1,8 @@
 const showval = document.getElementById("display"); // showval = show value
 const showRem = document.getElementById("reminder"); // showrem = show reminder
-let screenNumber = "0", partA, partB, opT , values = []; //opT = operator Type
+let screenNumber = "0", partA, partB, opT , values = [] , flag = 0; //opT = operator Type
 showval.innerHTML = screenNumber;
 showRem.style.display = 'none';
-
 function printscreen(val) {
     if (val === '.') {
         showval.innerHTML = (+screenNumber).toLocaleString() + '.';
@@ -25,29 +24,46 @@ function Del() {
     screenNumber = (+showval.innerHTML).toLocaleString();
 }
 
+function Del_cache() {
+    screenNumber = '0';
+    showval.innerHTML = screenNumber;
+    showRem.innerHTML = '';
+    values = [];
+    flag = 0;
+    showRem.style.display = 'none';
+    alert('calculators cache cleared!');
+}
+
 function operate(op) { // op is equal to operation 
     showRem.style.display = 'inline-block';
-    showRem.innerHTML = screenNumber +" "+ op;
+    showRem.innerHTML = screenNumber + " " + op; // show the operation in reminder
     partA = screenNumber;
     opT = op;
+    values.push(partA, opT); // store the values in an array
     screenNumber = '0';
     showval.innerHTML = '';
-
+    flag++; 
+    if(flag > 1){
+        equal();
+    }
 }
 
 function equal() {
-    partB = screenNumber;
-    showval.innerHTML = '';
-    if (opT === '*') {
-        result = (+partA) * (+partB);
-    } else if (opT === '/') {
-        result = (+partA) / (+partB);
-    } else if (opT === '+') {
-        result = (+partA) + (+partB);
-    } else if (opT === '-') {
-        result = (+partA) - (+partB);
-    }
+    expression = values.join('');
+    expression = expression.slice(0, -1);
+    console.log(expression);
+    result = eval(expression);
     showval.innerHTML = result;
     showRem.innerHTML = '';    
-    showRem.style.display = 'none';    
+    showRem.innerHTML = expression;    
+}
+function equal_B() {
+    values.push(screenNumber);
+    expression = values.join('');
+    console.log(expression);
+    result = eval(expression);
+    screenNumber = '';
+    showval.innerHTML = result;
+    showRem.innerHTML = '';    
+    showRem.innerHTML = expression;    
 }
