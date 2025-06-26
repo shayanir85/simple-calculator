@@ -86,3 +86,6 @@ function alert() {
     }, 1500);
 }
 
+function per(N1,N2){// => percentage
+    return (N1/N2) * 100;
+}
