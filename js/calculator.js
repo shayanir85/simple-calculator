@@ -85,7 +85,3 @@ function alert() {
         warn.classList.add('hide');
     }, 1500);
 }
-
-function per(N1,N2){// => percentage
-    return (N1/N2) * 100;
-}
