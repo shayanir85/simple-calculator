@@ -80,6 +80,9 @@ function equal_B() {
     showRem.innerHTML = '';
     showRem.innerHTML = expression;
 }
+
+
+//code ezafe
 function alert() {
     warn.classList.remove('hide');
     warn.classList.add('alert');
