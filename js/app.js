@@ -5,9 +5,9 @@ let screenNumber = '0', part1, part2, flag = 0;
 
 function show(val) {
     if (val === '.') {
-        display.innerHTML = (+screenNumber).toLocaleString() + '.';
+        display.innerHTML = (convertToFloat(screenNumber)).toLocaleString() + '.';
     } else {
-        display.innerHTML = (+screenNumber).toLocaleString();
+        display.innerHTML = (convertToFloat(screenNumber)).toLocaleString();
     }
 }
 
@@ -20,19 +20,19 @@ function printOnScreen(val) {
     show(val)
 }
 
-function convertToInt(formattedNumber) {
-    return parseInt(formattedNumber.replace(/,/g, ''), 10);
+function convertToFloat(formattedNumber) {
+    return parseFloat(formattedNumber.replace(/,/g, ''), '');
 }
 
 function opt(Opt) {
-    part1 = (+screenNumber)
+    part1 = (convertToFloat(screenNumber))
     screenNumber = "0";
     operation = Opt;
-    display.innerHTML = (+screenNumber).toLocaleString();
+    display.innerHTML = (convertToFloat(screenNumber)).toLocaleString();
 }
 
 function equal() {
-    part2 = convertToInt(screenNumber)
+    part2 = convertToFloat(screenNumber)
     screenNumber = 0;
     switch (operation) {
         case "+":
@@ -51,9 +51,11 @@ function equal() {
             result = part1 + part2;
             break;
     }
-    parseInt(screenNumber);
     screenNumber = (+result).toLocaleString();
+    screenNumber = convertToFloat(screenNumber)
     display.innerHTML = (screenNumber).toLocaleString();
+    part1 = 0
+    part2 = 0
 }
 
 function del() {
@@ -62,7 +64,7 @@ function del() {
         display.innerHTML = "0"
     } else {
         screenNumber = (display.innerHTML).toLocaleString();
-        screenNumber = convertToInt(screenNumber)
+        screenNumber = convertToFloat(screenNumber)
         display.innerHTML = (screenNumber).toLocaleString();
     }
 
